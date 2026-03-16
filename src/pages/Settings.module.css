@@ -1,0 +1,460 @@
+.settings {
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .settings {
+    max-width: 900px;
+  }
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sectionIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--accent-primary);
+}
+
+.sectionHeader h2 {
+  font-size: 14px;
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+
+.sectionHeader p {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.sectionContent {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profileRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.avatarLarge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: var(--font-semibold);
+  color: white;
+  flex-shrink: 0;
+}
+
+.profileFields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 11px;
+  font-weight: var(--font-medium);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.field input {
+  padding: 10px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.field input:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.field input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.stagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stageItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.stageItem:hover {
+  border-color: var(--border-default);
+}
+
+.stageDrag {
+  color: var(--text-tertiary);
+  cursor: grab;
+}
+
+.stageDrag:active {
+  cursor: grabbing;
+}
+
+.stageColorWrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.colorInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.stageColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px solid var(--bg-secondary);
+}
+
+.stageInput {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.stageInput:focus {
+  outline: none;
+  background: var(--bg-secondary) !important;
+  border-radius: var(--radius-sm);
+}
+
+.stageActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.moveBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  transition: all 0.15s ease;
+}
+
+.moveBtn:hover:not(:disabled) {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.moveBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.removeBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  transition: all 0.15s ease;
+}
+
+.removeBtn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--accent-danger);
+}
+
+.removeBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.addStageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: transparent;
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: var(--font-medium);
+  transition: all 0.2s ease;
+}
+
+.addStageBtn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.dataStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.dataStat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.dataStatValue {
+  font-size: 20px;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.dataStatLabel {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.dataActions {
+  display: flex;
+  gap: 10px;
+}
+
+.exportBtn,
+.clearBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: var(--font-medium);
+  transition: all 0.2s ease;
+}
+
+.exportBtn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.exportBtn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.clearBtn {
+  background: transparent;
+  color: var(--accent-danger);
+  border: 1px solid transparent;
+}
+
+.clearBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+}
+
+.saveBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--accent-primary);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: var(--font-medium);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.saveBtn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.warningModal {
+  width: 90%;
+  max-width: 400px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  text-align: center;
+}
+
+.warningIcon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.12);
+  border-radius: 50%;
+  color: var(--accent-danger);
+}
+
+.warningModal h3 {
+  font-size: 18px;
+  font-weight: var(--font-semibold);
+  margin-bottom: 8px;
+}
+
+.warningModal p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.warningActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.warningActions button {
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: var(--font-medium);
+  transition: all 0.2s ease;
+}
+
+.warningActions button:first-child {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.warningActions button:first-child:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.dangerBtn {
+  background: var(--accent-danger);
+  color: white;
+}
+
+.dangerBtn:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 640px) {
+  .dataStats {
+    grid-template-columns: 1fr;
+  }
+
+  .dataActions {
+    flex-direction: column;
+  }
+
+  .profileRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
