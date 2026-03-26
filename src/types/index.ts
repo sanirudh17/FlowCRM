@@ -78,10 +78,10 @@ export interface Settings {
 }
 
 export const DEFAULT_PIPELINE_STAGES: PipelineStage[] = [
-  { id: 'lead', label: 'New Lead', color: '#6366F1' },
+  { id: 'lead', label: 'New Lead', color: '#3B82F6' },
   { id: 'contacted', label: 'Contacted', color: '#8B5CF6' },
-  { id: 'qualified', label: 'Qualified', color: '#EC4899' },
-  { id: 'proposal', label: 'Proposal', color: '#F59E0B' },
+  { id: 'qualified', label: 'Qualified', color: '#F59E0B' },
+  { id: 'proposal', label: 'Proposal', color: '#6366F1' },
   { id: 'won', label: 'Won', color: '#10B981' },
   { id: 'lost', label: 'Lost', color: '#EF4444' },
 ];

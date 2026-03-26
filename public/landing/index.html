@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowCRM - Turn Scattered Leads Into a Winning Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon" style="background:#0A0A0A; border-radius:4px; display:flex; align-items:center; justify-content:center"><i data-lucide="zap" style="color:white; width:18px; height:18px" stroke-width="1.5"></i></div>
+        <span class="logo-text">FlowCRM</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#product-tour">Product Tour</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="#integrations">Benefits</a>
+        <a href="#" class="nav-signin" onclick="window.parent.location.href='/login'" style="cursor: pointer">Sign in</a>
+      </div>
+      <button class="nav-cta" onclick="window.parent.location.href='/login?signup=true'" style="cursor: pointer">Get started</button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="#features">Features</a>
+      <a href="#product-tour">Product Tour</a>
+      <a href="#how-it-works">How it Works</a>
+      <a href="#integrations">Benefits</a>
+      <a href="#" class="nav-signin" onclick="window.parent.location.href='/login'" style="cursor: pointer">Sign in</a>
+      <button class="nav-cta" onclick="window.parent.location.href='/login?signup=true'" style="cursor: pointer">Get started</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content">
+        
+        <h1 class="hero-title animate-fade-up delay-1">
+          Close more deals with a pipeline your team will actually use.
+        </h1>
+        <p class="hero-subtitle animate-fade-up delay-2">
+          Track every lead, move deals faster, and keep your team aligned in one clean workspace.
+        </p>
+        <div class="hero-ctas animate-fade-up delay-3">
+          <button class="btn btn-primary btn-signin" onclick="window.parent.location.href='/login'">
+            Already have an account? Sign in
+            <i data-lucide="arrow-right" class="btn-icon"></i>
+          </button>
+        </div>
+        <div class="hero-stats animate-fade-up delay-4">
+          <div class="hero-stat">
+            <span class="stat-value">10k+</span>
+            <span class="stat-label">Active users</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-value">$2.4B</span>
+            <span class="stat-label">Deals tracked</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-value">32%</span>
+            <span class="stat-label">Avg. close rate increase</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual animate-fade-left">
+        <div class="product-mockup">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="mockup-title">FlowCRM Dashboard</span>
+          </div>
+          <div class="mockup-content">
+            <div class="pipeline-columns">
+              <div class="pipeline-column" data-column="0">
+                <div class="column-header">
+                  <span class="column-dot new"></span>
+                  New Leads
+                  <span class="column-count">12</span>
+                </div>
+                <div class="column-cards">
+                  <div class="lead-card" draggable="true">
+                    <div style="display:flex; align-items:center; gap:8px;">
+    <div class="lead-avatar" style="margin:0;">JD</div>
+    <div class="lead-info" style="margin:0;">
+      <span class="lead-name" style="font-size:12px; font-weight:600; color:#18181B; line-height:1.2;">John Davis</span>
+      <span class="lead-company" style="font-size:11px; color:#71717A; line-height:1.2;">TechStart Inc.</span>
+    </div>
+  </div>
+                    <span class="lead-value">$45,000</span>
+                  </div>
+                  <div class="lead-card" draggable="true">
+                    <div style="display:flex; align-items:center; gap:8px;">
+    <div class="lead-avatar" style="margin:0;">SM</div>
+    <div class="lead-info" style="margin:0;">
+      <span class="lead-name" style="font-size:12px; font-weight:600; color:#18181B; line-height:1.2;">Sarah Miller</span>
+      <span class="lead-company" style="font-size:11px; color:#71717A; line-height:1.2;">Growth Labs</span>
+    </div>
+  </div>
+                    <span class="lead-value">$28,000</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pipeline-column" data-column="1">
+                <div class="column-header">
+                  <span class="column-dot contacted"></span>
+                  Contacted
+                  <span class="column-count">8</span>
+                </div>
+                <div class="column-cards">
+                  <div class="lead-card" draggable="true">
+                    <div style="display:flex; align-items:center; gap:8px;">
+    <div class="lead-avatar" style="margin:0;">MK</div>
+    <div class="lead-info" style="margin:0;">
+      <span class="lead-name" style="font-size:12px; font-weight:600; color:#18181B; line-height:1.2;">Mike Kim</span>
+      <span class="lead-company" style="font-size:11px; color:#71717A; line-height:1.2;">DataFlow</span>
+    </div>
+  </div>
+                    <span class="lead-value">$72,000</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pipeline-column" data-column="2">
+                <div class="column-header">
+                  <span class="column-dot qualified"></span>
+                  Qualified
+                  <span class="column-count">5</span>
+                </div>
+                <div class="column-cards">
+                  <div class="lead-card" draggable="true">
+                    <div style="display:flex; align-items:center; gap:8px;">
+    <div class="lead-avatar" style="margin:0;">AL</div>
+    <div class="lead-info" style="margin:0;">
+      <span class="lead-name" style="font-size:12px; font-weight:600; color:#18181B; line-height:1.2;">Amy Liu</span>
+      <span class="lead-company" style="font-size:11px; color:#71717A; line-height:1.2;">ScaleUp</span>
+    </div>
+  </div>
+                    <span class="lead-value">$120,000</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pipeline-column" data-column="3">
+                <div class="column-header">
+                  <span class="column-dot won"></span>
+                  Closed Won
+                  <span class="column-count">3</span>
+                </div>
+              </div>
+            </div>
+            <div class="mockup-sidebar">
+              <div class="sidebar-section">
+                <h4>This Month</h4>
+                <div class="metric-row">
+                  <span class="metric-label">Revenue</span>
+                  <span class="metric-value animated-counter" data-target="847000">$0</span>
+                </div>
+                <div class="metric-chart">
+                  <div class="chart-bar" style="height: 40%"></div>
+                  <div class="chart-bar" style="height: 65%"></div>
+                  <div class="chart-bar" style="height: 55%"></div>
+                  <div class="chart-bar" style="height: 80%"></div>
+                  <div class="chart-bar active" style="height: 90%"></div>
+                  <div class="chart-bar" style="height: 75%"></div>
+                </div>
+              </div>
+              <div class="sidebar-section">
+                <h4>AI Insights</h4>
+                <div class="ai-insight">
+                  <div class="insight-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                  </div>
+                  <p>3 leads ready to close this week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="proof-label">Trusted by forward-thinking teams</p>
+      <div class="logos-grid animate-on-scroll">
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Stripe</text>
+          </svg>
+        </div>
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Notion</text>
+          </svg>
+        </div>
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Vercel</text>
+          </svg>
+        </div>
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Linear</text>
+          </svg>
+        </div>
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Figma</text>
+          </svg>
+        </div>
+        <div class="logo-item">
+          <svg viewBox="0 0 120 30" fill="currentColor">
+            <text x="10" y="22" font-size="16" font-weight="600">Loom</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">Everything you need to close more deals</h2>
+        <p class="section-subtitle">Built for modern sales teams who want clarity, speed, and results.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i data-lucide="layout-grid" style="width: 48px; height: 48px;"></i>
+          </div>
+          <h3>See the whole pipeline at a glance</h3>
+          <p>Visual Kanban boards with drag-and-drop simplicity. Know exactly where every deal stands.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i data-lucide="clock" style="width: 48px; height: 48px;"></i>
+          </div>
+          <h3>Never drop a follow-up</h3>
+          <p>Smart reminders and automated sequences ensure no lead falls through the cracks.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i data-lucide="users" style="width: 48px; height: 48px;"></i>
+          </div>
+          <h3>Collaborate with your team in real time</h3>
+          <p>See teammate activity, @mention colleagues, and share notes instantly across deals.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon">
+            <i data-lucide="zap" style="width: 48px; height: 48px;"></i>
+          </div>
+          <h3>AI-assisted insights and summaries</h3>
+          <p>Get deal predictions, smart suggestions, and auto-generated summaries of your pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Tour Section -->
+  <section class="product-tour" id="product-tour">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Product Tour</span>
+        <h2 class="section-title">See FlowCRM in action</h2>
+        <p class="section-subtitle">Explore the features that help teams close faster.</p>
+      </div>
+      <div class="tour-tabs">
+        <button class="tour-tab active" data-tab="pipeline">Pipeline</button>
+        <button class="tour-tab" data-tab="leads">Leads</button>
+        <button class="tour-tab" data-tab="reports">Reports</button>
+        <button class="tour-tab" data-tab="automation">Automation</button>
+      </div>
+      <div class="tour-content">
+        <div class="tour-panel active" id="panel-pipeline">
+          <div class="tour-visual">
+            <div class="tour-mockup">
+              <div class="kanban-board">
+                <div class="kanban-column">
+                  <div class="kanban-header">
+                    <span class="status-dot new"></span>New
+                    <span class="count">12</span>
+                  </div>
+                  <div class="kanban-cards">
+                    <div class="mini-card"><span class="card-title">Acme Corp</span><span class="card-value">$50k</span></div>
+                    <div class="mini-card"><span class="card-title">Beta Inc</span><span class="card-value">$35k</span></div>
+                    <div class="mini-card"><span class="card-title">Gamma Ltd</span><span class="card-value">$28k</span></div>
+                  </div>
+                </div>
+                <div class="kanban-column">
+                  <div class="kanban-header">
+                    <span class="status-dot contacted"></span>Contacted
+                    <span class="count">8</span>
+                  </div>
+                  <div class="kanban-cards">
+                    <div class="mini-card highlight"><span class="card-title">Delta Co</span><span class="card-value">$120k</span></div>
+                    <div class="mini-card"><span class="card-title">Epsilon</span><span class="card-value">$45k</span></div>
+                  </div>
+                </div>
+                <div class="kanban-column">
+                  <div class="kanban-header">
+                    <span class="status-dot qualified"></span>Qualified
+                    <span class="count">5</span>
+                  </div>
+                  <div class="kanban-cards">
+                    <div class="mini-card"><span class="card-title">Zeta LLC</span><span class="card-value">$200k</span></div>
+                  </div>
+                </div>
+                <div class="kanban-column">
+                  <div class="kanban-header">
+                    <span class="status-dot won"></span>Won
+                    <span class="count">3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tour-info">
+            <h3>Visual Pipeline Management</h3>
+            <p>Drag and drop deals through stages. See your entire pipeline at a glance with color-coded cards, deal values, and owner assignments.</p>
+            <ul class="tour-features">
+              <li>Customizable pipeline stages</li>
+              <li>Drag-and-drop simplicity</li>
+              <li>Real-time updates across team</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tour-panel" id="panel-leads">
+          <div class="tour-visual">
+            <div class="tour-mockup leads-view">
+              <div class="leads-table">
+                <div class="leads-row header">
+                  <span>Name</span>
+                  <span>Company</span>
+                  <span>Status</span>
+                  <span>Value</span>
+                </div>
+                <div class="leads-row">
+                  <span class="lead-name-cell">John Davis</span>
+                  <span>TechStart Inc.</span>
+                  <span class="status-badge new">New</span>
+                  <span>$45,000</span>
+                </div>
+                <div class="leads-row">
+                  <span class="lead-name-cell">Sarah Miller</span>
+                  <span>Growth Labs</span>
+                  <span class="status-badge contacted">Contacted</span>
+                  <span>$28,000</span>
+                </div>
+                <div class="leads-row">
+                  <span class="lead-name-cell">Mike Kim</span>
+                  <span>DataFlow</span>
+                  <span class="status-badge qualified">Qualified</span>
+                  <span>$72,000</span>
+                </div>
+                <div class="leads-row">
+                  <span class="lead-name-cell">Amy Liu</span>
+                  <span>ScaleUp</span>
+                  <span class="status-badge won">Closed Won</span>
+                  <span>$120,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tour-info">
+            <h3>Smart Lead Management</h3>
+            <p>All your lead data in one place. Filter, sort, and search through contacts with powerful query tools.</p>
+            <ul class="tour-features">
+              <li>360° contact view</li>
+              <li>Email & phone integration</li>
+              <li>Custom fields & tags</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tour-panel" id="panel-reports">
+          <div class="tour-visual">
+            <div class="tour-mockup reports-view">
+              <div class="report-chart">
+                <div class="chart-title">Monthly Revenue</div>
+                <div class="bar-chart">
+                  <div class="bar-item">
+                    <div class="bar" style="height: 45%"></div>
+                    <span>Jan</span>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar" style="height: 60%"></div>
+                    <span>Feb</span>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar" style="height: 55%"></div>
+                    <span>Mar</span>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar" style="height: 75%"></div>
+                    <span>Apr</span>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar" style="height: 85%"></div>
+                    <span>May</span>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar highlight" style="height: 100%"></div>
+                    <span>Jun</span>
+                  </div>
+                </div>
+              </div>
+              <div class="report-stats">
+                <div class="stat-box">
+                  <span class="stat-num">$847k</span>
+                  <span class="stat-desc">This Month</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-num">+24%</span>
+                  <span class="stat-desc">vs Last Month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tour-info">
+            <h3>Actionable Reports</h3>
+            <p>Beautiful charts and insights that help you understand your sales performance at a glance.</p>
+            <ul class="tour-features">
+              <li>Revenue forecasting</li>
+              <li>Team performance metrics</li>
+              <li>Conversion rate tracking</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tour-panel" id="panel-automation">
+          <div class="tour-visual">
+            <div class="tour-mockup automation-view">
+              <div class="automation-flow">
+                <div class="flow-node trigger">
+                  <div class="node-icon" style="background:#F4F4F5; border:1px solid #E4E4E7; border-radius:4px; padding:6px; color:#18181B; display:flex; align-items:center; justify-content:center;"><i data-lucide="clock" style="width:16px; height:16px;"></i></div>
+                  <span>New Lead Added</span>
+                </div>
+                <div class="flow-arrow" style="display:flex; align-items:center; justify-content:center; padding: 0 10px; color: #71717A;"><i data-lucide="arrow-right"></i></div>
+                <div class="flow-node action">
+                  <div class="node-icon" style="background:#F4F4F5; border:1px solid #E4E4E7; border-radius:4px; padding:6px; color:#18181B; display:flex; align-items:center; justify-content:center;"><i data-lucide="send" style="width:16px; height:16px;"></i></div>
+                  <span>Send Welcome Email</span>
+                </div>
+                <div class="flow-arrow" style="display:flex; align-items:center; justify-content:center; padding: 0 10px; color: #71717A;"><i data-lucide="arrow-right"></i></div>
+                <div class="flow-node action">
+                  <div class="node-icon" style="background:#F4F4F5; border:1px solid #E4E4E7; border-radius:4px; padding:6px; color:#18181B; display:flex; align-items:center; justify-content:center;"><i data-lucide="map-pin" style="width:16px; height:16px;"></i></div>
+                  <span>Assign to Rep</span>
+                </div>
+              </div>
+              <div class="automation-info">
+                <div class="auto-stat">
+                  <span class="auto-value">2.4hrs</span>
+                  <span class="auto-label">saved per lead</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tour-info">
+            <h3>Powerful Automation</h3>
+            <p>Set up workflows that automatically handle repetitive tasks so your team can focus on selling.</p>
+            <ul class="tour-features">
+              <li>Email sequences</li>
+              <li>Task auto-assignment</li>
+              <li>Webhook integrations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="use-cases">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Use Cases</span>
+        <h2 class="section-title">Built for every sales role</h2>
+      </div>
+      <div class="use-cases-grid">
+        <div class="use-case-card animate-on-scroll">
+          <div class="use-case-icon"><i data-lucide="user" style="width: 28px; height: 28px; color: #18181B;"></i></div>
+          <h3>Founders</h3>
+          <p>Track every lead without losing focus on product. Get visibility into your pipeline without the overhead.</p>
+          <div class="use-case-stat">
+            <span class="use-stat-value">2.5x</span>
+            <span class="use-stat-label">faster first response</span>
+          </div>
+        </div>
+        <div class="use-case-card animate-on-scroll">
+          <div class="use-case-icon"><i data-lucide="briefcase" style="width: 28px; height: 28px; color: #18181B;"></i></div>
+          <h3>Sales Leaders</h3>
+          <p>Coach your team with real data. See rep performance, forecast accurately, and identify coaching opportunities.</p>
+          <div class="use-case-stat">
+            <span class="use-stat-value">+32%</span>
+            <span class="use-stat-label">team quota attainment</span>
+          </div>
+        </div>
+        <div class="use-case-card animate-on-scroll">
+          <div class="use-case-icon"><i data-lucide="target" style="width: 28px; height: 28px; color: #18181B;"></i></div>
+          <h3>Account Executives</h3>
+          <p>Manage your deals with ease. Never miss a follow-up, track conversations, and close faster with AI insights.</p>
+          <div class="use-case-stat">
+            <span class="use-stat-value">3x</span>
+            <span class="use-stat-label">faster follow-ups</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Section -->
+  <section class="metrics">
+    <div class="container">
+      <div class="metrics-content animate-on-scroll">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value-large">
+              <span class="counter" data-target="32">32</span>%
+            </div>
+            <div class="metric-label-large">avg. increase in close rate</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value-large">
+              <span class="counter" data-target="3">3</span>x
+            </div>
+            <div class="metric-label-large">faster follow-ups</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value-large">
+              <span class="counter" data-target="10">10</span>k+
+            </div>
+            <div class="metric-label-large">deals tracked every month</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value-large">
+              <span class="counter" data-target="98">98</span>%
+            </div>
+            <div class="metric-label-large">customer satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose FlowCRM Section -->
+  <section class="why-choose" id="integrations">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Why FlowCRM</span>
+        <h2 class="section-title">Built for teams that close</h2>
+        <p class="section-subtitle">See why 10,000+ sales professionals trust FlowCRM.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon"><i data-lucide="clock" style="width: 24px; height: 24px; color: #18181B;"></i></div>
+          <h3>Set Up in Minutes</h3>
+          <p>No training required. Import your data and start closing deals the same day.</p>
+          <div class="benefit-stat">
+            <span class="stat-num">8 min</span>
+            <span class="stat-desc">average setup time</span>
+          </div>
+        </div>
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon"><i data-lucide="sparkles" style="width: 24px; height: 24px; color: #18181B;"></i></div>
+          <h3>AI-Powered Insights</h3>
+          <p>Smart suggestions help you prioritize leads and close deals faster.</p>
+          <div class="benefit-stat">
+            <span class="stat-num">32%</span>
+            <span class="stat-desc">higher close rates</span>
+          </div>
+        </div>
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon"><i data-lucide="repeat" style="width: 24px; height: 24px; color: #18181B;"></i></div>
+          <h3>Automate Repetitive Tasks</h3>
+          <p>Set up workflows that handle follow-ups, assignments, and notifications.</p>
+          <div class="benefit-stat">
+            <span class="stat-num">2.4 hrs</span>
+            <span class="stat-desc">saved per deal</span>
+          </div>
+        </div>
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon"><i data-lucide="trending-up" style="width: 24px; height: 24px; color: #18181B;"></i></div>
+          <h3>Forecasting That Works</h3>
+          <p>Accurate revenue predictions based on your actual pipeline data.</p>
+          <div class="benefit-stat">
+            <span class="stat-num">94%</span>
+            <span class="stat-desc">forecast accuracy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">Loved by sales teams</h2>
+      </div>
+      <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonials-track">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </div>
+              <p>"FlowCRM transformed our sales process. We went from chaotic spreadsheets to a clear, actionable pipeline in days. Our close rate jumped 40% in the first quarter."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">JR</div>
+              <div class="author-info">
+                <span class="author-name">Jessica Rodriguez</span>
+                <span class="author-role">VP of Sales, TechStart</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </div>
+              <p>"The AI insights are game-changing. I get suggestions on which deals to prioritize and it's scary accurate. This tool pays for itself."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div class="author-info">
+                <span class="author-name">Michael Kim</span>
+                <span class="author-role">Founder, GrowthBox</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </div>
+              <p>"Finally, a CRM that my team actually uses. The interface is intuitive and the automation features save us hours every week."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">AL</div>
+              <div class="author-info">
+                <span class="author-name">Amanda Liu</span>
+                <span class="author-role">Sales Director, CloudScale</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </div>
+              <p>"We evaluated dozens of CRMs. FlowCRM was the only one that felt modern and didn't require a PhD to set up. Highly recommend."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">DP</div>
+              <div class="author-info">
+                <span class="author-name">David Park</span>
+                <span class="author-role">CEO, Vertex Solutions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18L9 12L15 6"/>
+            </svg>
+          </button>
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <button class="carousel-btn next" id="carousel-next" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18L15 12L9 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Get started in minutes</h2>
+        <p class="section-subtitle">From sign-up to your first closed deal in 3 easy steps.</p>
+      </div>
+      <div class="steps-wrapper">
+        <div class="step-item animate-on-scroll">
+          <div class="step-visual">
+            <div class="step-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <span class="step-num">Step 1</span>
+            <h3>Import Your Data</h3>
+            <p>Upload your contacts from CSV or migrate from Salesforce, HubSpot, or Pipedrive in clicks.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item animate-on-scroll">
+          <div class="step-visual">
+            <div class="step-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <span class="step-num">Step 2</span>
+            <h3>Customize Your Pipeline</h3>
+            <p>Set up stages, add custom fields, and create automation rules that match your process.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item animate-on-scroll">
+          <div class="step-visual">
+            <div class="step-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step-content">
+            <span class="step-num">Step 3</span>
+            <h3>Start Closing Deals</h3>
+            <p>Use AI insights to prioritize leads, automate follow-ups, and close more deals faster.</p>
+          </div>
+        </div>
+      </div>
+      <div class="setup-badge animate-on-scroll">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Average setup time: <strong>8 minutes</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="cta-bg">
+      <div class="cta-gradient"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Ready to clean up your pipeline?</h2>
+        <p class="cta-subtitle">Join 10,000+ sales professionals who close more deals with FlowCRM.</p>
+        <button class="btn btn-primary btn-large">
+          Get started in 2 minutes
+          <i data-lucide="arrow-right" class="btn-icon"></i>
+        </button>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon" style="background:#0A0A0A; border-radius:4px; display:flex; align-items:center; justify-content:center"><i data-lucide="zap" style="color:white; width:18px; height:18px" stroke-width="1.5"></i></div>
+            <span class="logo-text">FlowCRM</span>
+          </a>
+          <p class="footer-tagline">Turn scattered leads into a focused, winning pipeline.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#product-tour">Product Tour</a>
+            <a href="#how-it-works">How it Works</a>
+            <a href="#integrations">Benefits</a>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">Help Center</a>
+            <a href="#">API Reference</a>
+            <a href="#">Community</a>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+            <a href="#">GDPR</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 FlowCRM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

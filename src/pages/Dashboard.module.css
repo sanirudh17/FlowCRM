@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 .header {
@@ -11,43 +11,46 @@
 }
 
 .header h1 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: var(--font-semibold);
   letter-spacing: -0.03em;
+  color: #0A0A0A;
   margin-bottom: 4px;
 }
 
 .header p {
-  color: var(--text-secondary);
-  font-size: 14px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  font-weight: var(--font-regular);
 }
 
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .statCard {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 18px;
+  background: #FFFFFF;
+  padding: 20px 18px;
   display: flex;
   align-items: center;
   gap: 14px;
-  transition: all 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .statCard:hover {
-  border-color: var(--border-default);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: var(--bg-tertiary);
 }
 
 .statIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +68,7 @@
   color: var(--text-tertiary);
   font-weight: var(--font-medium);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .statValue {
@@ -78,13 +81,22 @@
 .mainGrid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 20px;
+  gap: 1px;
+  background: transparent;
+}
+
+.mainGrid > * + * {
+  margin-left: 16px;
+}
+
+.mainGrid {
+  gap: 16px;
 }
 
 .section {
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -92,14 +104,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .sectionHeader h2 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: var(--font-semibold);
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .viewAll {
@@ -108,40 +121,43 @@
   gap: 4px;
   font-size: 12px;
   font-weight: var(--font-medium);
-  color: var(--accent-primary);
-  transition: all 0.2s ease;
+  color: var(--text-tertiary);
+  transition: color 0.15s ease;
 }
 
 .viewAll:hover {
-  color: #818cf8;
-  gap: 6px;
+  color: var(--text-primary);
 }
 
 .leadList {
-  padding: 6px;
+  padding: 4px;
 }
 
 .leadItem {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  border-radius: var(--radius-md);
-  transition: background 0.15s ease;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: background 0.1s ease;
   cursor: pointer;
 }
 
+.leadItem:hover {
+  background: var(--bg-tertiary);
+}
+
 .leadAvatar {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: #E5E5E5;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: var(--font-semibold);
-  color: white;
+  color: #525252;
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -187,8 +203,8 @@
 .stageBadge {
   font-size: 10px;
   font-weight: var(--font-medium);
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: 3px;
 }
 
 .leadDate {
@@ -197,22 +213,26 @@
 }
 
 .activityList {
-  padding: 6px;
+  padding: 4px;
 }
 
 .activityItem {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px;
-  border-radius: var(--radius-md);
-  transition: background 0.15s ease;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: background 0.1s ease;
   cursor: pointer;
 }
 
+.activityItem:hover {
+  background: var(--bg-tertiary);
+}
+
 .activityIcon {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: var(--radius-sm);
   background: var(--bg-tertiary);
   display: flex;
@@ -252,32 +272,30 @@
 }
 
 .pipelineSection {
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 .pipelineGrid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  padding: 16px;
+  gap: 1px;
+  background: var(--border-subtle);
 }
 
 .pipelineCard {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 14px;
+  background: #FFFFFF;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: all 0.2s ease;
+  transition: background 0.15s ease;
 }
 
 .pipelineCard:hover {
-  border-color: var(--border-default);
+  background: var(--bg-tertiary);
 }
 
 .pipelineCardHeader {
@@ -287,8 +305,8 @@
 }
 
 .pipelineDot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -306,9 +324,10 @@
 }
 
 .pipelineCount {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: var(--font-semibold);
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .pipelineValue {
@@ -317,19 +336,19 @@
 }
 
 .pipelineBar {
-  height: 3px;
-  background: var(--bg-primary);
-  border-radius: 2px;
+  height: 2px;
+  background: #EBEBEB;
+  border-radius: 1px;
   overflow: hidden;
 }
 
 .pipelineProgress {
   height: 100%;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .emptyState {
-  padding: 48px 24px;
+  padding: 56px 24px;
   text-align: center;
   color: var(--text-tertiary);
   display: flex;
@@ -344,12 +363,14 @@
 
 .emptyAction {
   font-size: 12px;
-  color: var(--accent-primary);
+  color: var(--text-primary);
   font-weight: var(--font-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .emptyAction:hover {
-  text-decoration: underline;
+  color: var(--text-secondary);
 }
 
 /* Activity Modal */
@@ -375,23 +396,17 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.modalHeaderContent {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
 .leadAvatarLarge {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: #E5E5E5;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--font-semibold);
-  color: white;
+  color: #525252;
   overflow: hidden;
 }
 
@@ -402,7 +417,7 @@
 }
 
 .modalHeader h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: var(--font-semibold);
   margin-bottom: 2px;
 }
@@ -413,18 +428,18 @@
 }
 
 .modalHeader button {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
   color: var(--text-tertiary);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .modalHeader button:hover {
-  background: var(--bg-glass-hover);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
 }
 
@@ -443,7 +458,7 @@
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .detailRow {
@@ -462,17 +477,17 @@
 .activityTimeline {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .timelineItem {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .timelineIcon {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: var(--radius-sm);
   background: var(--bg-tertiary);
   display: flex;
@@ -514,7 +529,8 @@
 
 .activityLead {
   font-size: 11px;
-  color: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+  font-weight: var(--font-medium);
 }
 
 @media (max-width: 1400px) {

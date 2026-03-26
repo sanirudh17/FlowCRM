@@ -1,66 +1,61 @@
 .page { display: flex; flex-direction: column; gap: 28px; }
 .header { display: flex; align-items: flex-start; justify-content: space-between; }
-.header h1 { font-size: 26px; font-weight: var(--font-semibold); letter-spacing: -0.03em; margin-bottom: 4px; }
-.header p { color: var(--text-secondary); font-size: 14px; }
+.header h1 { font-size: 22px; font-weight: var(--font-semibold); letter-spacing: -0.03em; margin-bottom: 4px; }
+.header p { color: var(--text-tertiary); font-size: 13px; }
 .exportBtn { 
   display: flex; 
   align-items: center; 
-  gap: 8px; 
-  padding: 10px 16px; 
-  background: var(--accent-primary); 
+  gap: 6px; 
+  padding: 8px 14px; 
+  background: #0A0A0A; 
   border: none; 
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   font-size: 13px; 
   font-weight: var(--font-medium); 
   color: white; 
-  transition: all 0.2s ease; 
+  transition: background 0.15s ease; 
 }
 
 .exportBtn:hover:not(:disabled) { 
-  background: #7c3aed; 
-  transform: translateY(-1px); 
+  background: #262626; 
 }
-.exportBtn:disabled { opacity: 0.7; cursor: not-allowed; }
+.exportBtn:disabled { opacity: 0.5; cursor: not-allowed; }
 .spinner { animation: spin 1s linear infinite; }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* 2x2 Grid Layout - Dashboard Style */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.card { background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; }
-.cardFull { background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; grid-column: span 2; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+.cardFull { background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; grid-column: span 2; }
 
-.cardHeader { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border-subtle); }
-.cardHeader h3 { font-size: 14px; font-weight: var(--font-semibold); color: var(--text-primary); }
-.cardHeader svg { color: #8B5CF6; }
+.cardHeader { display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-bottom: 1px solid var(--border-subtle); }
+.cardHeader h3 { font-size: 13px; font-weight: var(--font-semibold); color: var(--text-primary); }
+.cardHeader svg { color: var(--text-tertiary); }
 
-/* Funnel Styles */
-.funnel { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.funnel { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
 .funnelItem { display: flex; align-items: center; gap: 12px; }
-.funnelDot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.funnelDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .funnelLabel { width: 80px; font-size: 12px; color: var(--text-secondary); flex-shrink: 0; }
-.funnelBarContainer { flex: 1; height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; }
-.funnelBar { height: 100%; border-radius: 4px; }
+.funnelBarContainer { flex: 1; height: 6px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; }
+.funnelBar { height: 100%; border-radius: 3px; }
 .funnelCount { width: 24px; text-align: right; font-size: 12px; font-weight: var(--font-semibold); color: var(--text-primary); }
 
-/* Metrics Grid */
-.metricsGrid { padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.metricItem { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg-tertiary); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); transition: all 0.2s ease; }
-.metricItem:hover { border-color: var(--border-default); }
-.metricIcon { width: 36px; height: 36px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.metricsGrid { padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.metricItem { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg-tertiary); border-radius: var(--radius-sm); transition: background 0.15s ease; }
+.metricItem:hover { background: #EBEBEB; }
+.metricIcon { width: 32px; height: 32px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .metricContent { display: flex; flex-direction: column; gap: 2px; }
 .metricValue { font-size: 18px; font-weight: var(--font-semibold); color: var(--text-primary); }
 .metricLabel { font-size: 11px; color: var(--text-tertiary); }
 
-/* Top Deals Table */
 .topDealsTable { padding: 0; }
 .table { width: 100%; border-collapse: collapse; }
-.table th { padding: 12px 16px; text-align: left; font-size: 11px; font-weight: var(--font-semibold); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border-subtle); background: var(--bg-tertiary); }
-.table td { padding: 14px 16px; font-size: 13px; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); }
+.table th { padding: 10px 16px; text-align: left; font-size: 10px; font-weight: var(--font-semibold); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border-subtle); background: var(--bg-tertiary); }
+.table td { padding: 12px 16px; font-size: 13px; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); }
 .table tr:last-child td { border-bottom: none; }
 .table tr:hover td { background: var(--bg-tertiary); }
 
 .rankCell { width: 50px; }
-.rankBadge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 6px; font-size: 11px; font-weight: var(--font-semibold); color: white; }
+.rankBadge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 3px; font-size: 11px; font-weight: var(--font-semibold); color: white; }
 
 .leadCell { }
 .leadName { display: block; font-weight: var(--font-medium); color: var(--text-primary); }
@@ -69,11 +64,10 @@
 .companyCell { color: var(--text-tertiary); font-size: 12px; }
 
 .stageCell { }
-.stageBadge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: var(--font-medium); }
+.stageBadge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: var(--font-medium); }
 
-.valueCell { text-align: right; font-weight: var(--font-semibold); color: var(--accent-success); }
+.valueCell { text-align: right; font-weight: var(--font-semibold); color: var(--text-primary); }
 
-/* Responsive */
 @media (max-width: 1200px) { 
   .grid { grid-template-columns: 1fr; }
   .cardFull { grid-column: span 1; }
@@ -82,7 +76,7 @@
 @media (max-width: 768px) {
   .metricsGrid { grid-template-columns: 1fr; }
   .table { font-size: 12px; }
-  .table th, .table td { padding: 10px 12px; }
+  .table th, .table td { padding: 8px 12px; }
 }
 
 @media (max-width: 480px) {

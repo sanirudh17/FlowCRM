@@ -7,16 +7,16 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  background: var(--bg-secondary);
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .searchBox:focus-within {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--border-active);
+  background: #FFFFFF;
 }
 
 .searchIcon {
@@ -39,14 +39,14 @@
 }
 
 .clearBtn {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   color: var(--text-tertiary);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .clearBtn:hover {
@@ -63,20 +63,20 @@
 
 .results {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   z-index: 100;
   max-height: 400px;
   overflow-y: auto;
 }
 
 .resultSection {
-  padding: 8px 0;
+  padding: 4px 0;
 }
 
 .resultSection:not(:last-child) {
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-size: 11px;
   font-weight: var(--font-semibold);
   color: var(--text-tertiary);
@@ -96,16 +96,16 @@
 }
 
 .resultSectionHeader svg {
-  color: var(--accent-primary);
+  color: var(--text-tertiary);
 }
 
 .resultItem {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.1s ease;
 }
 
 .resultItem:hover {
@@ -113,16 +113,16 @@
 }
 
 .resultAvatar {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: #E5E5E5;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
   font-weight: var(--font-semibold);
-  color: white;
+  color: #525252;
   flex-shrink: 0;
 }
 
@@ -160,17 +160,17 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 8px;
-  background: rgba(139, 92, 246, 0.15);
-  border-radius: 4px;
+  padding: 2px 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
   font-size: 10px;
-  color: #8B5CF6;
+  color: var(--text-secondary);
 }
 
 .moreResults {
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-size: 12px;
-  color: var(--accent-primary);
+  color: var(--text-secondary);
   text-align: center;
   cursor: pointer;
 }
@@ -180,14 +180,14 @@
 }
 
 .noResults {
-  padding: 32px 16px;
+  padding: 32px 14px;
   text-align: center;
   color: var(--text-tertiary);
 }
 
 .noResults svg {
   margin-bottom: 12px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .noResults p {

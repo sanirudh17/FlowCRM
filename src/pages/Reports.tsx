@@ -2,11 +2,25 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Loader2, TrendingUp, TrendingDown, Users, DollarSign, Target, BarChart2, ArrowUpRight } from 'lucide-react';
 import { useCRM } from '../store/CRMContext';
-import { formatCurrency } from '../utils';
+import { formatCurrency, getInitials } from '../utils';
 import styles from './Reports.module.css';
 
+const AVATAR_COLORS = [
+  { bg: 'rgba(59, 130, 246, 0.1)', text: '#2563EB' },
+  { bg: 'rgba(139, 92, 246, 0.1)', text: '#7C3AED' },
+  { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669' },
+  { bg: 'rgba(244, 63, 94, 0.1)', text: '#E11D48' },
+  { bg: 'rgba(99, 102, 241, 0.1)', text: '#4F46E5' },
+];
+
+const getAvatarColor = (name: string) => {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
+
 export default function Reports() {
-  const { leads, activities, settings } = useCRM();
+  const { leads, companies, activities, settings } = useCRM();
   const [isExporting, setIsExporting] = useState(false);
 
   const handleExportPDF = async () => {
@@ -20,7 +34,7 @@ export default function Reports() {
       const pageWidth = doc.internal.pageSize.getWidth();
       
       doc.setFontSize(24);
-      doc.setTextColor(99, 102, 241);
+      doc.setTextColor(10, 10, 10);
       doc.text('FlowCRM Report', pageWidth / 2, 20, { align: 'center' });
       
       doc.setFontSize(12);
@@ -125,8 +139,8 @@ export default function Reports() {
           </div>
           <div className={styles.metricsGrid}>
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(139, 92, 246, 0.15)' }}>
-                <DollarSign size={18} color="#8B5CF6" />
+              <div className={styles.metricIcon} style={{ background: 'rgba(16, 185, 129, 0.08)' }}>
+                <DollarSign size={18} color="#10B981" />
               </div>
               <div className={styles.metricContent}>
                 <span className={styles.metricValue}>{formatCurrency(totalValue)}</span>
@@ -135,8 +149,8 @@ export default function Reports() {
             </div>
             
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(139, 92, 246, 0.15)' }}>
-                <Users size={18} color="#8B5CF6" />
+              <div className={styles.metricIcon} style={{ background: 'rgba(59, 130, 246, 0.08)' }}>
+                <Users size={18} color="#3B82F6" />
               </div>
               <div className={styles.metricContent}>
                 <span className={styles.metricValue}>{activeLeads.length}</span>
@@ -145,8 +159,8 @@ export default function Reports() {
             </div>
             
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(16, 185, 129, 0.15)' }}>
-                <TrendingUp size={18} color="#10B981" />
+              <div className={styles.metricIcon} style={{ background: 'rgba(245, 158, 11, 0.08)' }}>
+                <TrendingUp size={18} color="#F59E0B" />
               </div>
               <div className={styles.metricContent}>
                 <span className={styles.metricValue}>{wonLeads.length}</span>
@@ -155,8 +169,8 @@ export default function Reports() {
             </div>
             
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(239, 68, 68, 0.15)' }}>
-                <TrendingDown size={18} color="#EF4444" />
+              <div className={styles.metricIcon} style={{ background: 'rgba(244, 63, 94, 0.08)' }}>
+                <TrendingDown size={18} color="#F43F5E" />
               </div>
               <div className={styles.metricContent}>
                 <span className={styles.metricValue}>{lostLeads.length}</span>
@@ -165,7 +179,7 @@ export default function Reports() {
             </div>
 
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(139, 92, 246, 0.15)' }}>
+              <div className={styles.metricIcon} style={{ background: 'rgba(139, 92, 246, 0.08)' }}>
                 <Target size={18} color="#8B5CF6" />
               </div>
               <div className={styles.metricContent}>
@@ -175,8 +189,8 @@ export default function Reports() {
             </div>
             
             <div className={styles.metricItem}>
-              <div className={styles.metricIcon} style={{ background: 'rgba(139, 92, 246, 0.15)' }}>
-                <BarChart2 size={18} color="#8B5CF6" />
+              <div className={styles.metricIcon} style={{ background: 'rgba(99, 102, 241, 0.08)' }}>
+                <BarChart2 size={18} color="#6366F1" />
               </div>
               <div className={styles.metricContent}>
                 <span className={styles.metricValue}>{conversionRate}%</span>
@@ -206,20 +220,41 @@ export default function Reports() {
               <tbody>
                 {topDeals.map((deal, idx) => {
                   const stageInfo = settings.pipelineStages.find(s => s.id === deal.stage);
-                  const company = leads.find(l => l.id === deal.id);
+                  const company = companies.find(c => c.id === deal.companyId);
                   return (
                     <tr key={deal.id}>
                       <td className={styles.rankCell}>
-                        <span className={styles.rankBadge} style={{ background: stageInfo?.color || '#8B5CF6' }}>
+                        <span className={styles.rankBadge} style={{ background: stageInfo?.color || '#525252' }}>
                           {idx + 1}
                         </span>
                       </td>
-                      <td className={styles.leadCell}>
-                        <span className={styles.leadName}>{deal.name}</span>
-                        <span className={styles.leadEmail}>{deal.email}</span>
+                      <td>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          <div
+                            style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '50%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '12px',
+                              fontWeight: '600',
+                              flexShrink: 0,
+                              background: getAvatarColor(deal.name).bg,
+                              color: getAvatarColor(deal.name).text,
+                            }}
+                          >
+                            {getInitials(deal.name)}
+                          </div>
+                          <div className={styles.leadCell}>
+                            <span className={styles.leadName}>{deal.name}</span>
+                            <span className={styles.leadEmail}>{deal.email}</span>
+                          </div>
+                        </div>
                       </td>
                       <td className={styles.companyCell}>
-                        {deal.companyId ? leads.find(l => l.id === deal.companyId)?.email?.split('@')[1] || '-' : '-'}
+                        {company?.name || '-'}
                       </td>
                       <td className={styles.stageCell}>
                         <span className={styles.stageBadge} style={{ background: `${stageInfo?.color}20`, color: stageInfo?.color }}>

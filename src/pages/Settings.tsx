@@ -181,9 +181,9 @@ export default function Settings() {
   };
 
   const handleAddStage = () => {
-    const colors = ['#6366F1', '#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#EF4444'];
+    const colors = ['#3B82F6', '#8B5CF6', '#F59E0B', '#6366F1', '#10B981', '#EF4444', '#F43F5E', '#0EA5E9'];
     const usedColors = settings.pipelineStages.map(s => s.color);
-    const availableColor = colors.find(c => !usedColors.includes(c)) || '#6366F1';
+    const availableColor = colors.find(c => !usedColors.includes(c)) || '#3B82F6';
     
     const newStage: PipelineStage = {
       id: `stage_${Date.now()}` as any,
@@ -281,7 +281,7 @@ export default function Settings() {
 
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <div className={styles.sectionIcon} style={{ background: 'rgba(139, 92, 246, 0.12)', color: '#8B5CF6' }}>
+            <div className={styles.sectionIcon}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="3" y="3" width="7" height="7" rx="1" />
                 <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -328,7 +328,7 @@ export default function Settings() {
 
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <div className={styles.sectionIcon} style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#10B981' }}>
+            <div className={styles.sectionIcon}>
               <Database size={18} strokeWidth={1.5} />
             </div>
             <div>

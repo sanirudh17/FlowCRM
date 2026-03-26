@@ -3,11 +3,11 @@
   left: 0;
   top: 0;
   height: 100vh;
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  padding: 24px 16px;
+  padding: 20px 12px;
   z-index: 100;
   overflow: hidden;
 }
@@ -16,47 +16,47 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 10px;
   padding: 0 8px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .collapsed .logo {
   justify-content: center;
   padding: 0;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .logoIcon {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  border-radius: var(--radius-md);
+  background: #0A0A0A;
+  border-radius: var(--radius-sm);
   color: white;
-  box-shadow: var(--shadow-glow);
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .collapsed .logoIcon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 }
 
 .logoText {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: var(--font-semibold);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: #0A0A0A;
   white-space: nowrap;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   flex: 1;
 }
 
@@ -64,14 +64,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
+  gap: 10px;
+  padding: 8px 12px;
   border-radius: var(--radius-md);
   color: var(--text-secondary);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-regular);
   font-size: 13px;
   letter-spacing: -0.01em;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -82,24 +82,31 @@
 
 .collapsed .navItem {
   justify-content: center;
-  padding: 10px;
+  padding: 8px;
 }
 
 .navItem:hover {
   color: var(--text-primary);
-  background: var(--bg-glass-hover);
+  background: var(--bg-tertiary);
 }
 
 .navItem.active {
   color: var(--text-primary);
+  font-weight: var(--font-medium);
 }
 
 .activeIndicator {
   position: absolute;
   inset: 0;
-  background: var(--bg-glass);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-default);
+  z-index: 0;
+}
+
+.navItem svg,
+.navLabel {
+  position: relative;
+  z-index: 1;
 }
 
 .navItem svg {
@@ -109,9 +116,9 @@
 .bottomNav {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 12px;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -120,14 +127,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 10px;
-  margin-top: 12px;
+  padding: 8px;
+  margin-top: 8px;
   border-radius: var(--radius-sm);
   color: var(--text-tertiary);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .collapseBtn:hover {
   color: var(--text-primary);
-  background: var(--bg-glass-hover);
+  background: var(--bg-tertiary);
 }

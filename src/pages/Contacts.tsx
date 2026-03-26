@@ -8,6 +8,20 @@ import Modal from '../components/Modal';
 import DeleteModal from '../components/DeleteModal';
 import styles from './Contacts.module.css';
 
+const AVATAR_COLORS = [
+  { bg: 'rgba(59, 130, 246, 0.1)', text: '#2563EB' },
+  { bg: 'rgba(139, 92, 246, 0.1)', text: '#7C3AED' },
+  { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669' },
+  { bg: 'rgba(244, 63, 94, 0.1)', text: '#E11D48' },
+  { bg: 'rgba(99, 102, 241, 0.1)', text: '#4F46E5' },
+];
+
+const getAvatarColor = (name: string) => {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
+
 export default function Contacts() {
   const { contacts, companies, leads, addContact, updateContact, deleteContact } = useCRM();
   const [searchQuery, setSearchQuery] = useState('');
@@ -120,7 +134,7 @@ export default function Contacts() {
               >
                 <td>
                   <div className={styles.contactCell}>
-                    <div className={styles.avatar}>{getInitials(contact.name)}</div>
+                    <div className={styles.avatar} style={{ background: getAvatarColor(contact.name).bg, color: getAvatarColor(contact.name).text }}>{getInitials(contact.name)}</div>
                     <div className={styles.contactInfo}>
                       <span className={styles.name}>{contact.name}</span>
                       <span className={styles.email}>{contact.email}</span>

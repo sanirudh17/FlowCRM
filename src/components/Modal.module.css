@@ -11,21 +11,21 @@
 .backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
 }
 
 .modal {
   position: relative;
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   z-index: 10000;
   max-height: 85vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
 .modal.sm {
@@ -55,29 +55,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 18px 24px;
   border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
 
 .header h2 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: var(--font-semibold);
+  color: var(--text-primary);
 }
 
 .closeBtn {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
   color: var(--text-tertiary);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .closeBtn:hover {
-  background: var(--bg-glass-hover);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
 }
 
@@ -94,7 +95,7 @@
   }
   
   .header {
-    padding: 16px 20px;
+    padding: 14px 20px;
   }
   
   .content {

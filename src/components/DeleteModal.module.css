@@ -11,47 +11,47 @@
 .backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
 }
 
 .modal {
   position: relative;
   width: 90vw;
   max-width: 400px;
-  background: var(--bg-secondary);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: 32px;
   z-index: 10000;
   text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
 .iconWrapper {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   margin: 0 auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(239, 68, 68, 0.15);
-  border-radius: 50%;
-  color: #EF4444;
+  background: #FEF2F2;
+  border-radius: var(--radius-md);
+  color: #DC2626;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: var(--font-semibold);
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .message {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .message strong {
@@ -60,37 +60,37 @@
 
 .actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
 }
 
 .cancelBtn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: transparent;
-  border: 1px solid #8B5CF6;
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: var(--font-medium);
-  color: #8B5CF6;
-  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
 }
 
 .cancelBtn:hover {
-  background: rgba(139, 92, 246, 0.1);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 .deleteBtn {
-  padding: 10px 20px;
-  background: #EF4444;
+  padding: 8px 16px;
+  background: #DC2626;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: var(--font-medium);
   color: white;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .deleteBtn:hover {
-  background: #DC2626;
-  transform: translateY(-1px);
+  background: #B91C1C;
 }

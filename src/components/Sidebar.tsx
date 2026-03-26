@@ -12,8 +12,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Zap,
+  LogOut,
 } from 'lucide-react';
 import { useCRM } from '../store/CRMContext';
+import { useAuth } from '../store/AuthContext';
 import styles from './Sidebar.module.css';
 
 const navItems = [
@@ -32,6 +34,7 @@ const bottomNavItems = [
 
 export default function Sidebar() {
   const { settings, updateSettings } = useCRM();
+  const { signOut } = useAuth();
   const location = useLocation();
   const collapsed = settings.sidebarCollapsed;
 
@@ -125,6 +128,23 @@ export default function Sidebar() {
             </NavLink>
           );
         })}
+
+        <button
+          className={styles.navItem}
+          onClick={() => signOut()}
+          style={{ width: '100%', border: 'none', background: 'none' }}
+        >
+          <LogOut size={20} strokeWidth={1.5} />
+          <motion.span
+            className={styles.navLabel}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: collapsed ? 0 : 1, x: collapsed ? -10 : 0 }}
+            transition={{ delay: 0.1 }}
+            style={{ display: collapsed ? 'none' : 'block' }}
+          >
+            Sign Out
+          </motion.span>
+        </button>
 
         <button
           className={styles.collapseBtn}

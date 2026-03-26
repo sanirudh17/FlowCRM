@@ -16,11 +16,25 @@ import { formatCurrency, formatDate, getInitials, parseCSV } from '../utils';
 import LeadModal from '../components/LeadModal';
 import styles from './Leads.module.css';
 
+const AVATAR_COLORS = [
+  { bg: 'rgba(59, 130, 246, 0.1)', text: '#2563EB' },
+  { bg: 'rgba(139, 92, 246, 0.1)', text: '#7C3AED' },
+  { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669' },
+  { bg: 'rgba(244, 63, 94, 0.1)', text: '#E11D48' },
+  { bg: 'rgba(99, 102, 241, 0.1)', text: '#4F46E5' },
+];
+
+const getAvatarColor = (name: string) => {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
+
 const STAGES: { id: Stage; label: string; color: string }[] = [
-  { id: 'lead', label: 'New Lead', color: '#6366F1' },
+  { id: 'lead', label: 'New Lead', color: '#3B82F6' },
   { id: 'contacted', label: 'Contacted', color: '#8B5CF6' },
-  { id: 'qualified', label: 'Qualified', color: '#EC4899' },
-  { id: 'proposal', label: 'Proposal', color: '#F59E0B' },
+  { id: 'qualified', label: 'Qualified', color: '#F59E0B' },
+  { id: 'proposal', label: 'Proposal', color: '#6366F1' },
   { id: 'won', label: 'Won', color: '#10B981' },
   { id: 'lost', label: 'Lost', color: '#EF4444' },
 ];
@@ -227,7 +241,7 @@ export default function Leads() {
                 </td>
                 <td>
                   <div className={styles.leadCell}>
-                    <div className={styles.avatar}>
+                    <div className={styles.avatar} style={{ background: getAvatarColor(lead.name).bg, color: getAvatarColor(lead.name).text }}>
                       {lead.avatar ? (
                         <img src={lead.avatar} alt={lead.name} />
                       ) : (

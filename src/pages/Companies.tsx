@@ -10,6 +10,20 @@ import DeleteModal from '../components/DeleteModal';
 import GlobalSearch from '../components/GlobalSearch';
 import styles from './Companies.module.css';
 
+const AVATAR_COLORS = [
+  { bg: 'rgba(59, 130, 246, 0.1)', text: '#2563EB' },
+  { bg: 'rgba(139, 92, 246, 0.1)', text: '#7C3AED' },
+  { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669' },
+  { bg: 'rgba(244, 63, 94, 0.1)', text: '#E11D48' },
+  { bg: 'rgba(99, 102, 241, 0.1)', text: '#4F46E5' },
+];
+
+const getAvatarColor = (name: string) => {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
+
 export default function Companies() {
   const { leads, addCompany, updateCompany, deleteCompany } = useCRM();
   const { results, isSearching } = useGlobalSearch();
@@ -105,7 +119,7 @@ export default function Companies() {
               whileHover={{ y: -2 }}
             >
               <div className={styles.cardHeader}>
-                <div className={styles.avatar}>
+                <div className={styles.avatar} style={{ background: getAvatarColor(company.name).bg, color: getAvatarColor(company.name).text }}>
                   {getInitials(company.name)}
                 </div>
                 <div className={styles.cardInfo}>

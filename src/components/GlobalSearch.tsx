@@ -131,7 +131,7 @@ export default function GlobalSearch({ type }: GlobalSearchProps) {
                     className={styles.resultItem}
                     onClick={() => handleResultClick(company.id)}
                   >
-                    <div className={styles.resultAvatar} style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)' }}>
+                    <div className={styles.resultAvatar}>
                       {company.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                     </div>
                     <div className={styles.resultInfo}>

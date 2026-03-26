@@ -199,7 +199,7 @@ export default function KanbanBoard({ leads, searchQuery = '', isSearching = fal
                 isOver={isOver}
                 onDragOver={handleDragOverColumn}
               >
-                <div className={styles.columnHeader}>
+                <div className={styles.columnHeader} style={{ borderTop: `2px solid ${stage.color}` }}>
                   <div className={styles.columnTitle}>
                     <span
                       className={styles.columnDot}

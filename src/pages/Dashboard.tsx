@@ -18,6 +18,22 @@ import { Link } from 'react-router-dom';
 import { useCRM } from '../store/CRMContext';
 import { formatCurrency, formatDate, getInitials } from '../utils';
 import { Stage, Lead, Activity as ActivityType } from '../types';
+
+const AVATAR_COLORS = [
+  { bg: 'rgba(59, 130, 246, 0.1)', text: '#2563EB' },
+  { bg: 'rgba(139, 92, 246, 0.1)', text: '#7C3AED' },
+  { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  { bg: 'rgba(16, 185, 129, 0.1)', text: '#059669' },
+  { bg: 'rgba(244, 63, 94, 0.1)', text: '#E11D48' },
+  { bg: 'rgba(99, 102, 241, 0.1)', text: '#4F46E5' },
+  { bg: 'rgba(14, 165, 233, 0.1)', text: '#0284C7' },
+  { bg: 'rgba(168, 85, 247, 0.1)', text: '#9333EA' },
+];
+
+const getAvatarColor = (name: string) => {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+};
 import Modal from '../components/Modal';
 import styles from './Dashboard.module.css';
 
@@ -75,36 +91,36 @@ export default function Dashboard() {
       label: 'Total Leads',
       value: totalLeads,
       icon: Users,
-      color: '#6366F1',
-      bg: 'rgba(99, 102, 241, 0.12)',
+      color: '#3B82F6',
+      bg: 'rgba(59, 130, 246, 0.08)',
     },
     {
       label: 'Pipeline Value',
       value: formatCurrency(totalValue),
       icon: DollarSign,
       color: '#10B981',
-      bg: 'rgba(16, 185, 129, 0.12)',
+      bg: 'rgba(16, 185, 129, 0.08)',
     },
     {
       label: 'Won Value',
       value: formatCurrency(wonValue),
       icon: Target,
       color: '#F59E0B',
-      bg: 'rgba(245, 158, 11, 0.12)',
+      bg: 'rgba(245, 158, 11, 0.08)',
     },
     {
       label: 'Conversion Rate',
       value: `${conversionRate}%`,
       icon: TrendingUp,
       color: '#8B5CF6',
-      bg: 'rgba(139, 92, 246, 0.12)',
+      bg: 'rgba(139, 92, 246, 0.08)',
     },
     {
       label: 'Active Deals',
       value: activeDeals,
       icon: Zap,
-      color: '#EC4899',
-      bg: 'rgba(236, 72, 153, 0.12)',
+      color: '#F43F5E',
+      bg: 'rgba(244, 63, 94, 0.08)',
     },
   ];
 
@@ -129,6 +145,17 @@ export default function Dashboard() {
     }
   };
 
+  const getActivityColor = (type: string) => {
+    switch (type) {
+      case 'call': return { color: '#3B82F6', bg: 'rgba(59, 130, 246, 0.08)' };
+      case 'email': return { color: '#8B5CF6', bg: 'rgba(139, 92, 246, 0.08)' };
+      case 'note': return { color: '#F59E0B', bg: 'rgba(245, 158, 11, 0.08)' };
+      case 'meeting': return { color: '#6366F1', bg: 'rgba(99, 102, 241, 0.08)' };
+      case 'task': return { color: '#10B981', bg: 'rgba(16, 185, 129, 0.08)' };
+      default: return { color: '#525252', bg: '#F5F5F5' };
+    }
+  };
+
   return (
     <motion.div
       className={styles.dashboard}
@@ -149,8 +176,8 @@ export default function Dashboard() {
             key={stat.label}
             className={styles.statCard}
             variants={itemVariants}
-            whileHover={{ y: -2, scale: 1.01 }}
-            transition={{ duration: 0.2 }}
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.15 }}
           >
             <div className={styles.statIcon} style={{ background: stat.bg, color: stat.color }}>
               <stat.icon size={18} strokeWidth={1.5} />
@@ -179,9 +206,9 @@ export default function Dashboard() {
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.04 }}
-                whileHover={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
+                whileHover={{ backgroundColor: 'rgba(0,0,0,0.02)' }}
               >
-                <div className={styles.leadAvatar}>
+                <div className={styles.leadAvatar} style={{ background: getAvatarColor(lead.name).bg, color: getAvatarColor(lead.name).text }}>
                   {lead.avatar ? (
                     <img src={lead.avatar} alt={lead.name} />
                   ) : (
@@ -216,6 +243,7 @@ export default function Dashboard() {
             {recentActivities.map((activity, index) => {
               const Icon = getActivityIcon(activity.type);
               const lead = activity.leadId ? leads.find(l => l.id === activity.leadId) : null;
+              const activityColors = getActivityColor(activity.type);
               
               return (
                 <motion.div
@@ -224,11 +252,11 @@ export default function Dashboard() {
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.04 }}
-                  whileHover={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
+                  whileHover={{ backgroundColor: 'rgba(0,0,0,0.02)' }}
                   onClick={() => handleActivityClick(activity)}
                   style={{ cursor: activity.leadId ? 'pointer' : 'default' }}
                 >
-                  <div className={styles.activityIcon}>
+                  <div className={styles.activityIcon} style={{ background: activityColors.bg, color: activityColors.color }}>
                     <Icon size={13} strokeWidth={1.5} />
                   </div>
                   <div className={styles.activityContent}>
@@ -354,9 +382,10 @@ export default function Dashboard() {
               <div className={styles.activityTimeline}>
                 {getLeadActivities(selectedLead.id).map((activity) => {
                   const Icon = getActivityIcon(activity.type);
+                  const actColors = getActivityColor(activity.type);
                   return (
                     <div key={activity.id} className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}>
+                      <div className={styles.timelineIcon} style={{ background: actColors.bg, color: actColors.color }}>
                         <Icon size={12} />
                       </div>
                       <div className={styles.timelineContent}>
@@ -383,10 +412,10 @@ export default function Dashboard() {
 
 function StageBadge({ stage }: { stage: Stage }) {
   const stageConfig: Record<Stage, { label: string; color: string }> = {
-    lead: { label: 'Lead', color: '#6366F1' },
+    lead: { label: 'Lead', color: '#3B82F6' },
     contacted: { label: 'Contacted', color: '#8B5CF6' },
-    qualified: { label: 'Qualified', color: '#EC4899' },
-    proposal: { label: 'Proposal', color: '#F59E0B' },
+    qualified: { label: 'Qualified', color: '#F59E0B' },
+    proposal: { label: 'Proposal', color: '#6366F1' },
     won: { label: 'Won', color: '#10B981' },
     lost: { label: 'Lost', color: '#EF4444' },
   };
